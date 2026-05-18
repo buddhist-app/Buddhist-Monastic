@@ -111,12 +111,28 @@
                 text-align: center;
             }
         }
+
+        .imgg {
+            width: 50%;
+            max-width: 400px;
+            height: auto;
+        }
     </style>
 </head>
 
 <body>
     <header class="hero">
-        <h2>Downloads</h2>
+        <h2 style="
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 20px 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+">
+            Downloads</h2>
     </header>
 
     <main class="download-content">
@@ -166,19 +182,12 @@
         <div class="download-section">
             <h3>📅 Schedule Downloads</h3>
 
-            <!-- <div class="download-item">
-                <div class="download-info">
-                    <h4>2026 Schedule (CSV)</h4>
-                    <p>Download the schedule as a CSV file for calendar import.</p>
-                </div>
-                <a href="../schedule.csv" class="download-btn" download>Download</a>
-            </div> -->
-            <div class="download-item">
+              <div class="download-item">
                 <div class="download-info">
                     <h4>Schedule (CSV)</h4>
-                    <p>Download the schedule as a CSV file for calendar import. <br>Your file download will be available
-                        in
-                        download folder as <b>schedule-2026.csv</b></p>
+                    <p>Download the schedule as a CSV file for calendar import.<br>
+                        Your file will be saved in the Downloads folder as <b>schedule-2026.csv</b>.</p>
+                    <br>
                     <p>Select year and download
                         <select id="yearSelect">
                             <option value="2026">2026</option>
@@ -196,7 +205,7 @@
         <div class="download-section">
             <h3>📥 Share Download Link</h3>
             <div class="download-item" style="flex-direction: column; align-items: center;">
-                <img src="buddhist-app.png" alt="Bhikkhu Manual App" style="width: 70%; height: auto; ">
+                <img src="buddhist-app.png" alt="Bhikkhu Manual App" class="imgg">
             </div>
         </div>
 
