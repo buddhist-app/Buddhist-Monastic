@@ -118,6 +118,42 @@
             max-width: 400px;
             height: auto;
         }
+
+        
+          .gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery img {
+    height: 150px;
+    border-radius: 8px;
+    cursor: pointer;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* Overlay popup */
+  .overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+
     </style>
 </head>
 
@@ -170,6 +206,28 @@
                 <a href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
                     target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
             </div>
+
+            
+<div class="gallery">
+  <img src="bm01.jpg" alt="bm01">
+  <img src="bm02.jpg" alt="bm02">
+  <img src="bm03.jpg" alt="bm03">
+  <img src="bm04.jpg" alt="bm04">
+  <img src="bm05.jpg" alt="bm05">
+  <img src="bm06.jpg" alt="bm06">
+  <img src="bm07.jpg" alt="bm07">
+  <img src="bm08.jpg" alt="bm08">
+  <img src="bm09.jpg" alt="bm09">
+  <img src="bm10.jpg" alt="bm10">
+  <img src="bm11.jpg" alt="bm11">
+</div>
+
+<br><br><br>
+<!-- Overlay untuk gambar besar -->
+<div class="overlay" id="overlay">
+  <img id="overlayImg" src="" alt="besar">
+</div>
+            
             <div class="download-item" id="prt">
                 <div class="download-info">
                     <h4>Paritta Compilation App Version 5.3</h4><br>
@@ -182,6 +240,16 @@
             </div>
         </div>
 
+        
+<div class="gallery">
+  <img src="pr01.jpg" alt="pr01">
+  <img src="pr02.jpg" alt="pr02">
+  <img src="pr03.jpg" alt="pr03">
+  <img src="pr04.jpg" alt="pr04">
+  <img src="pr05.jpg" alt="pr05">
+</div>
+<br><br><br>
+        
         <!-- Schedule Section -->
         <div class="download-section">
             <h3>📅 Schedule Downloads</h3>
@@ -226,6 +294,24 @@
    onclick="navigator.clipboard.writeText('https://buddhist-app.github.io/Buddhist-Monastic/')">
    https://buddhist-app.github.io/Buddhist-Monastic/
 </p>
+
+    
+<script>
+  const overlay = document.getElementById('overlay');
+  const overlayImg = document.getElementById('overlayImg');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      overlayImg.src = img.src;
+      overlay.style.display = 'flex';
+    });
+  });
+
+  overlay.addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
+</script>
+
 </body>
 
 </html>
