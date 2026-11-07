@@ -154,13 +154,69 @@
     border-radius: 10px;
   }
 
+.update-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  list-style-position: inside;
+}
+
+.card-content {
+  margin-top: 12px;
+  color: #333333;
+  line-height: 1.5;
+}
+
+.card-content ol {
+  padding-left: 20px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.card-content li {
+  margin-bottom: 6px;  
+    font-size: 14px;
+    color: #666;
+}
+
+.release-date {
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+/* Style tombol Download kuning */
+.btn-download {
+  display: block;
+  width: 140px;
+  margin-left: auto;
+  text-align: center;
+  background-color: #f5b300;
+  color: #111111;
+  font-weight: bold;
+  padding: 10px 0;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.btn-download:hover {
+  background-color: #dda100;
+}
     </style>
 </head>
 
 <body>
     <header class="hero">
         <div style="flex-direction: column; align-items: center;">
-            <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/welcome_new-noe.png" alt="Bhikkhu Manual App" class="imgg">
+            <img src="welcome_new-noe.png" alt="Bhikkhu Manual App" class="imgg">
         </div>
         <h2 style="
   font-family: Helvetica, Arial, sans-serif;
@@ -181,45 +237,68 @@
             <h3>🔄 App Updates</h3>
             <div class="download-item" id="bm">
                 <div class="download-info">
-                    <h4>Bhikkhu Manual App New Version 1.0</h4><br>
-
-                    <p>May 31st, 2025 </p>
-                    <p>New Bhikkhu Manual is an Android app designed to help bhikkhus understand and practice monastic
-                        discipline according to the Vinaya.
-                        <br>
-                        Main contents:
-                        <br>
-                        1. Ordination Procedure – guidelines for sāmaṇera and bhikkhu ordination.
-                        <br>
-                        2. Pātimokkha – monastic rules for Pali recitation and Uposatha observance.
-                        <br>
-                        3. Pavāraṇā – procedure for the end of Vassa ceremony.
-                        <br>
-                        4. Vinaya (Notes) – Provides practical procedures commonly used in the daily life of
-                        bhikkhus.
-                        <br>
-                        5. Chanting (Paritta) – Chants for daily and ceremonial use.
-                        <br>
-                        6. Uposatha Schedule – calendar of monastic observances.
-                    </p>
-                </div>
+                    <!-- Bhikkhu Manual Ver 1.1 (Terbuka secara default) -->
+                               <!-- <details open class="update-card">
+                                <summary class="card-header">
+                                    <strong>Bhikkhu Manual App Version 1.1</strong><sup> <font size="2" color="gold">New</font></sup>  
+                                </summary>
+                                <div class="card-content">
+                                    <p class="release-date"><em>November 2026</em></p>
+                                    <p><strong>What's New:</strong></p>
+                                    <ol>
+                                    <li>Fixed Pali typos in the ordination procedures.</p></li>
+                                    <li>Added links for easier navigation to the Note pages in the Pātimokkha and Pavāraṇā sections.</li>
+                                    <li>Fixed typos in the Chanting section.</li>
+                                    <li>Added new articles to Vinaya Notes.</li>
+                                    <li>Added 2027 Uposatha Calendar.</li>
+                                    </ol>
+                                    
                 <a href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
                     target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
+                                </div>
+                                </details>-->
+
+                                <!-- Bhikkhu Manual Ver 1.0 (Tertutup secara default) -->
+                                <details class="update-card">
+                                <summary class="card-header">
+                                    <strong>Bhikkhu Manual App Version 1.0</strong>
+                                </summary>
+                                <div class="card-content">
+                                    <p class="release-date">May 31st, 2025</p>
+                                    <p>New Bhikkhu Manual is an Android app designed to help bhikkhus understand and practice monastic discipline according to the Vinaya.</p>
+                                    <p><strong>Main contents:</strong></p>
+                                    <ol>
+                                    <li><strong>Ordination Procedure</strong> – guidelines for sāmaṇera and bhikkhu ordination.</li>
+                                    <li><strong>Pātimokkha</strong> – monastic rules for Pali recitation and Uposatha observance.</li>
+                                    <li><strong>Pavāraṇā</strong> – procedure for the end of Vassa ceremony.</li>
+                                    <li><strong>Vinaya (Notes)</strong> – Provides practical procedures commonly used in the daily life of bhikkhus.</li>
+                                    <li><strong>Chanting (Paritta)</strong> – Chants for daily and ceremonial use.</li>
+                                    <li><strong>Uposatha Schedule</strong> – calendar of monastic observances.</li>
+                                    </ol>
+                                    
+                <a href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
+                    target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
+                                </div>
+                                </details>
+
+                </div>                    
             </div>
 
             
 <div class="gallery">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm01.jpg" alt="bm01">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm02.jpg" alt="bm02">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm03.jpg" alt="bm03">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm04.jpg" alt="bm04">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm05.jpg" alt="bm05">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm06.jpg" alt="bm06">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm07.jpg" alt="bm07">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm08.jpg" alt="bm08">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm09.jpg" alt="bm09">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm10.jpg" alt="bm10">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm11.jpg" alt="bm11">
+    
+  <!-- <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm01.jpg" alt="bm01"> -->
+  <img src="bm01.jpg" alt="bm01">
+  <img src="bm02.jpg" alt="bm02">
+  <img src="bm03.jpg" alt="bm03">
+  <img src="bm04.jpg" alt="bm04">
+  <img src="bm05.jpg" alt="bm05">
+  <img src="bm06.jpg" alt="bm06">
+  <img src="bm07.jpg" alt="bm07">
+  <img src="bm08.jpg" alt="bm08">
+  <img src="bm09.jpg" alt="bm09">
+  <img src="bm10.jpg" alt="bm10">
+  <img src="bm11.jpg" alt="bm11">
 </div>
 
 <br><br><br>
@@ -242,49 +321,53 @@
 
         
 <div class="gallery">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/pr01.jpg" alt="pr01">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/pr02.jpg" alt="pr02">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/pr03.jpg" alt="pr03">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/pr04.jpg" alt="pr04">
-  <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/pr05.jpg" alt="pr05">
+  <img src="pr01.jpg" alt="pr01">
+  <img src="pr02.jpg" alt="pr02">
+  <img src="pr03.jpg" alt="pr03">
+  <img src="pr04.jpg" alt="pr04">
+  <img src="pr05.jpg" alt="pr05">
 </div>
 <br><br><br>
         
-        <!-- Schedule Section -->
+
+ <!-- Schedule Section -->
         <div class="download-section">
             <h3>📅 Schedule Downloads</h3>
 
             <div class="download-item" id="csv">
                 <div class="download-info">
                     <h4>Schedule (CSV)</h4>
-                    <p>Download the schedule as a CSV file for calendar import. You can upload it into your Calendar app.<br>
-                        Your file will be saved in the Downloads folder as <b>schedule-20xx.csv</b>.</p>
+                    <p>Download the schedule as a CSV file for calendar import. You can upload it into your Calendar app.
+Your file will be saved in the Downloads folder as schedule-20xx.csv.</b>.</p>
                     <br>
                     <p>Select year and download
                         <select id="yearSelect">
                             <option value="2026">2026</option>
                         </select>
                     </p>
+
+                  
                 </div>
                 <a href="https://www.mediafire.com/file/dljnbtm6ta75uxh/schedule-2026.csv/file" target="_blank"
                     rel="noopener noreferrer" class="download-btn">Download</a>
-
-                <div class="download-info">
+<br>
+              <div class="download-info">
               <h4>Schedule PDF</h4>
                     <p>Download the schedule as a PDF file. <br><b>Uposatha_Calendar_20xx.pdf</b></p>
             </div>
                 <a href="https://www.mediafire.com/file/go4d1yh04q1kzj0/Uposatha_Calendar_2027.pdf/file" target="_blank"
-                    rel="noopener noreferrer" class="download-btn">Download</a>
+                    rel="noopener noreferrer" class="download-btn">Download 2027</a>
         
                 <!-- <a href="#" id="downloadBtn" class="download-btn" onclick="downloadSchedule()">Download</a> -->
             </div>
         </div>
 
+
         <!-- Google Calendar Section -->
         <div class="download-section">
             <h3>🔗 Share Download Link</h3>
             <div class="download-item" style="flex-direction: column; align-items: center;">
-                <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/buddhist-app.png" alt="Bhikkhu Manual App" class="imgg">
+                <img src="buddhist-app.png" alt="Bhikkhu Manual App" class="imgg">
             </div>
         </div>
 
