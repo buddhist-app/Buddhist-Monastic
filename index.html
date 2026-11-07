@@ -1,408 +1,487 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Download - Bhikkhu Manual</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            /* background-color: #ffd349; */
-            background-color: #81c6f4;
-            color: #333;
-        }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        /* background-color: #ffd349; */
+        background-color: #81c6f4;
+        color: #333;
+      }
 
-        .hero {
-            margin-top: 0px;
-            text-align: center;
-        }
+      .hero {
+        margin-top: 0px;
+        text-align: center;
+      }
 
-        .hero h2 {
-            font-size: 28px;
-            margin: 0;
-            color: #1d2c43;
-        }
+      .hero h2 {
+        font-size: 28px;
+        margin: 0;
+        color: #1d2c43;
+      }
 
-        .hero p {
-            font-size: 16px;
-            color: #666;
-        }
+      .hero p {
+        font-size: 16px;
+        color: #666;
+      }
 
-        .download-content {
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+      .download-content {
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
-        .download-section {
-            margin-bottom: 30px;
-        }
+      .download-section {
+        margin-bottom: 30px;
+      }
 
-        .download-section h3 {
-            color: #2c3e50;
-            font-size: 18px;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ffc106;
-        }
+      .download-section h3 {
+        color: #2c3e50;
+        font-size: 18px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #ffc106;
+      }
 
+      .download-item {
+        background: #fff;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        transition: all 0.2s ease;
+      }
+
+      .download-item:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+      }
+
+      .download-info {
+        flex: 1;
+      }
+
+      .download-info h4 {
+        margin: 0 0 5px 0;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .download-info p {
+        margin: 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .download-btn {
+        background: #ffc106;
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.2s ease;
+        margin-left: auto;
+      }
+
+      .download-btn:hover {
+        background: #ffb300;
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 600px) {
         .download-item {
-            background: #fff;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            transition: all 0.2s ease;
-        }
-
-        .download-item:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
-
-        .download-info {
-            flex: 1;
-        }
-
-        .download-info h4 {
-            margin: 0 0 5px 0;
-            color: #333;
-            font-size: 16px;
-        }
-
-        .download-info p {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
+          flex-direction: column;
+          align-items: flex-start;
         }
 
         .download-btn {
-            background: #ffc106;
-            color: #333;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s ease;
-            margin-left: auto;
+          margin-left: auto;
+          margin-top: 10px;
+          text-align: center;
         }
+      }
 
-        .download-btn:hover {
-            background: #ffb300;
-            transform: scale(1.05);
-        }
+      .imgg {
+        width: 70%;
+        max-width: 400px;
+        height: auto;
+      }
 
-        @media (max-width: 600px) {
-            .download-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+      .gallery {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
 
-            .download-btn {
-                margin-left: auto;
-                margin-top: 10px;
-                text-align: center;
-            }
-        }
+      .gallery img {
+        height: 150px;
+        border-radius: 8px;
+        cursor: pointer;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+      }
 
-        .imgg {
-            width: 70%;
-            max-width: 400px;
-            height: auto;
-        }
+      /* Overlay popup */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
 
-        
-          .gallery {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
+      .overlay img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+      }
 
-  .gallery img {
-    height: 150px;
-    border-radius: 8px;
-    cursor: pointer;
-    scroll-snap-align: start;
-    flex-shrink: 0;
-  }
+      .update-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
 
-  /* Overlay popup */
-  .overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
+      .card-header {
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        list-style-position: inside;
+      }
 
-  .overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-  }
+      .card-content {
+        margin-top: 12px;
+        color: #333333;
+        line-height: 1.5;
+      }
 
-.update-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
+      .card-content ol {
+        padding-left: 20px;
+        margin-top: 8px;
+        margin-bottom: 16px;
+      }
 
-.card-header {
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-  list-style-position: inside;
-}
+      .card-content li {
+        margin-bottom: 6px;
+        font-size: 14px;
+        color: #666;
+      }
 
-.card-content {
-  margin-top: 12px;
-  color: #333333;
-  line-height: 1.5;
-}
+      .release-date {
+        color: #666666;
+        margin-bottom: 10px;
+      }
 
-.card-content ol {
-  padding-left: 20px;
-  margin-top: 8px;
-  margin-bottom: 16px;
-}
+      /* Style tombol Download kuning */
+      .btn-download {
+        display: block;
+        width: 140px;
+        margin-left: auto;
+        text-align: center;
+        background-color: #f5b300;
+        color: #111111;
+        font-weight: bold;
+        padding: 10px 0;
+        border-radius: 8px;
+        text-decoration: none;
+      }
 
-.card-content li {
-  margin-bottom: 6px;  
-    font-size: 14px;
-    color: #666;
-}
-
-.release-date {
-  color: #666666;
-  margin-bottom: 10px;
-}
-
-/* Style tombol Download kuning */
-.btn-download {
-  display: block;
-  width: 140px;
-  margin-left: auto;
-  text-align: center;
-  background-color: #f5b300;
-  color: #111111;
-  font-weight: bold;
-  padding: 10px 0;
-  border-radius: 8px;
-  text-decoration: none;
-}
-
-.btn-download:hover {
-  background-color: #dda100;
-}
+      .btn-download:hover {
+        background-color: #dda100;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="hero">
-        <div style="flex-direction: column; align-items: center;">
-            <img src="welcome_new-noe.png" alt="Bhikkhu Manual App" class="imgg">
-        </div>
-        <h2 style="
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
-  color: #2c3e50;
-  letter-spacing: 1px;
-  text-align: center;
-  /* margin: 20px 0; */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-">
-            A guide for Buddhist Monastic Practice</h2>
+      <div style="flex-direction: column; align-items: center">
+        <img src="welcome_new-noe.png" alt="Bhikkhu Manual App" class="imgg" />
+      </div>
+      <h2
+        style="
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+          color: #2c3e50;
+          letter-spacing: 1px;
+          text-align: center;
+          /* margin: 20px 0; */
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        "
+      >
+        A guide for Buddhist Monastic Practice
+      </h2>
     </header>
 
     <main class="download-content">
-        <!-- App Update Section -->
-        <div class="download-section">
-            <h3>🔄 App Updates</h3>
-            <div class="download-item" id="bm">
-                <div class="download-info">
-                    <!-- Bhikkhu Manual Ver 1.1 (Terbuka secara default) -->
-                               <!-- <details open class="update-card">
-                                <summary class="card-header">
-                                    <strong>Bhikkhu Manual App Version 1.1</strong><sup> <font size="2" color="gold">New</font></sup>  
-                                </summary>
-                                <div class="card-content">
-                                    <p class="release-date"><em>November 2026</em></p>
-                                    <p><strong>What's New:</strong></p>
-                                    <ol>
-                                    <li>Fixed Pali typos in the ordination procedures.</p></li>
-                                    <li>Added links for easier navigation to the Note pages in the Pātimokkha and Pavāraṇā sections.</li>
-                                    <li>Fixed typos in the Chanting section.</li>
-                                    <li>Added new articles to Vinaya Notes.</li>
-                                    <li>Added 2027 Uposatha Calendar.</li>
-                                    </ol>
-                                    
-                <a href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
-                    target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
-                                </div>
-                                </details>-->
+      <!-- App Update Section -->
+      <div class="download-section">
+        <h3>🔄 App Updates</h3>
+        <div class="download-item" id="bm">
+          <div class="download-info">
+            <!-- Bhikkhu Manual Ver 1.1 (Terbuka secara default) -->
+            <details open class="update-card">
+              <summary class="card-header">
+                <strong>Bhikkhu Manual App Version 1.1</strong
+                ><sup> <font size="2" color="gold">New</font></sup>
+              </summary>
+              <div class="card-content">
+                <p class="release-date"><em>November 2026</em></p>
+                <p><strong>What's New:</strong></p>
+                <ol>
+                  <li>Fixed Pali typos in the ordination procedures.</li>
+                  <li>
+                    Added links for easier navigation to the Note pages in the
+                    Pātimokkha and Pavāraṇā sections.
+                  </li>
+                  <li>Fixed typos in the Chanting section.</li>
+                  <li>Added new articles to Vinaya Notes.</li>
+                  <li>Added 2027 Uposatha Calendar.</li>
+                </ol>
 
-                                <!-- Bhikkhu Manual Ver 1.0 (Tertutup secara default) -->
-                                <details class="update-card">
-                                <summary class="card-header">
-                                    <strong>Bhikkhu Manual App Version 1.0</strong>
-                                </summary>
-                                <div class="card-content">
-                                    <p class="release-date">May 31st, 2025</p>
-                                    <p>New Bhikkhu Manual is an Android app designed to help bhikkhus understand and practice monastic discipline according to the Vinaya.</p>
-                                    <p><strong>Main contents:</strong></p>
-                                    <ol>
-                                    <li><strong>Ordination Procedure</strong> – guidelines for sāmaṇera and bhikkhu ordination.</li>
-                                    <li><strong>Pātimokkha</strong> – monastic rules for Pali recitation and Uposatha observance.</li>
-                                    <li><strong>Pavāraṇā</strong> – procedure for the end of Vassa ceremony.</li>
-                                    <li><strong>Vinaya (Notes)</strong> – Provides practical procedures commonly used in the daily life of bhikkhus.</li>
-                                    <li><strong>Chanting (Paritta)</strong> – Chants for daily and ceremonial use.</li>
-                                    <li><strong>Uposatha Schedule</strong> – calendar of monastic observances.</li>
-                                    </ol>
-                                    
-                <a href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
-                    target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
-                                </div>
-                                </details>
+                <!--
+                  <a
+                  href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="download-btn"
+                  >Download</a
+                >
+                  --> Coming Soon
+              </div>
+            </details>
 
-                </div>                    
+            <!-- Bhikkhu Manual Ver 1.0 (Tertutup secara default) -->
+            <details class="update-card">
+              <summary class="card-header">
+                <strong>Bhikkhu Manual App Version 1.0</strong>
+              </summary>
+              <div class="card-content">
+                <p class="release-date">May 31st, 2025</p>
+                <p>
+                  New Bhikkhu Manual is an Android app designed to help bhikkhus
+                  understand and practice monastic discipline according to the
+                  Vinaya.
+                </p>
+                <p><strong>Main contents:</strong></p>
+                <ol>
+                  <li>
+                    <strong>Ordination Procedure</strong> – guidelines for
+                    sāmaṇera and bhikkhu ordination.
+                  </li>
+                  <li>
+                    <strong>Pātimokkha</strong> – monastic rules for Pali
+                    recitation and Uposatha observance.
+                  </li>
+                  <li>
+                    <strong>Pavāraṇā</strong> – procedure for the end of Vassa
+                    ceremony.
+                  </li>
+                  <li>
+                    <strong>Vinaya (Notes)</strong> – Provides practical
+                    procedures commonly used in the daily life of bhikkhus.
+                  </li>
+                  <li>
+                    <strong>Chanting (Paritta)</strong> – Chants for daily and
+                    ceremonial use.
+                  </li>
+                  <li>
+                    <strong>Uposatha Schedule</strong> – calendar of monastic
+                    observances.
+                  </li>
+                </ol>
+
+                <a
+                  href="https://www.mediafire.com/file/3jssqzpvsaabaak/BhikkhuManualNewv1.0.apk/file"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="download-btn"
+                  >Download</a
+                >
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <!-- <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm01.jpg" alt="bm01"> -->
+          <img src="bm01.jpg" alt="bm01" />
+          <img src="bm02.jpg" alt="bm02" />
+          <img src="bm03.jpg" alt="bm03" />
+          <img src="bm04.jpg" alt="bm04" />
+          <img src="bm05.jpg" alt="bm05" />
+          <img src="bm06.jpg" alt="bm06" />
+          <img src="bm07.jpg" alt="bm07" />
+          <img src="bm08.jpg" alt="bm08" />
+          <img src="bm09.jpg" alt="bm09" />
+          <img src="bm10.jpg" alt="bm10" />
+          <img src="bm11.jpg" alt="bm11" />
+        </div>
+
+        <br /><br /><br />
+        <!-- Overlay untuk gambar besar -->
+        <div class="overlay" id="overlay">
+          <img id="overlayImg" src="" alt="besar" />
+        </div>
+
+        <div class="download-item" id="prt">
+          <div class="download-info">
+            <div class="card-content">
+              <h4>Paritta Compilation App Version 5.3</h4>
+              <br />
+              <p>May 31st, 2026</p>
+              <p>
+                Chants for daily and ceremonial use.<br />
+                Avaliable in Pali, English, Indonesia and Thai language.
+              </p>
+              <br />
+              <a
+                href="https://www.mediafire.com/file/j41n5r9h39f8lli/ParittaCompilationV5.3.apk/file"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="download-btn"
+                >Download</a
+              >
             </div>
-
-            
-<div class="gallery">
-    
-  <!-- <img src="https://raw.githubusercontent.com/buddhist-app/Buddhist-Monastic/main/bm01.jpg" alt="bm01"> -->
-  <img src="bm01.jpg" alt="bm01">
-  <img src="bm02.jpg" alt="bm02">
-  <img src="bm03.jpg" alt="bm03">
-  <img src="bm04.jpg" alt="bm04">
-  <img src="bm05.jpg" alt="bm05">
-  <img src="bm06.jpg" alt="bm06">
-  <img src="bm07.jpg" alt="bm07">
-  <img src="bm08.jpg" alt="bm08">
-  <img src="bm09.jpg" alt="bm09">
-  <img src="bm10.jpg" alt="bm10">
-  <img src="bm11.jpg" alt="bm11">
-</div>
-
-<br><br><br>
-<!-- Overlay untuk gambar besar -->
-<div class="overlay" id="overlay">
-  <img id="overlayImg" src="" alt="besar">
-</div>
-            
-            <div class="download-item" id="prt">
-                <div class="download-info">
-                    <h4>Paritta Compilation App Version 5.3</h4><br>
-                    <p>May 31st, 2026</p>
-                    <p>Chants for daily and ceremonial use.<br>
-                        Avaliable in Pali, English, Indonesia and Thai language.</p>
-                <br>
-                <a href="https://www.mediafire.com/file/j41n5r9h39f8lli/ParittaCompilationV5.3.apk/file" target="_blank"
-                    rel="noopener noreferrer" class="download-btn">Download</a>
-            </div></div>
+          </div>
         </div>
+      </div>
 
-        
-<div class="gallery">
-  <img src="pr01.jpg" alt="pr01">
-  <img src="pr02.jpg" alt="pr02">
-  <img src="pr03.jpg" alt="pr03">
-  <img src="pr04.jpg" alt="pr04">
-  <img src="pr05.jpg" alt="pr05">
-</div>
-<br><br><br>
-        
+      <div class="gallery">
+        <img src="pr01.jpg" alt="pr01" />
+        <img src="pr02.jpg" alt="pr02" />
+        <img src="pr03.jpg" alt="pr03" />
+        <img src="pr04.jpg" alt="pr04" />
+        <img src="pr05.jpg" alt="pr05" />
+      </div>
+      <br /><br /><br />
 
-<!-- Schedule Section -->
-        <div class="download-section">
-            <h3>📅 Schedule Downloads</h3>
+      <!-- Schedule Section -->
+      <div class="download-section">
+        <h3>📅 Schedule Downloads</h3>
 
-            <div class="download-item" id="csv">
-                <div class="download-info">
-                    <h4>Schedule (CSV)</h4>
-                    <p>Download the schedule as a CSV file for calendar import. You can upload it into your Calendar app.
-                        Your file will be saved in the Downloads folder as schedule-20xx.csv.</b>.</p>
-                    <br>
-                    <p>Select year and download
-                        <select id="yearSelect">
-                            <option value="2026">2026</option>
-                        </select>
-                    </p>
-                 
-                <br>
-                <a href="https://www.mediafire.com/file/dljnbtm6ta75uxh/schedule-2026.csv/file" target="_blank"
-                    rel="noopener noreferrer" class="download-btn">Download</a>
-            </div></div>
-                    <br>
-                    
-            <div class="download-item" id="csv">
-              <div class="download-info">
-              <h4>Schedule PDF</h4>
-                    <p>Download the schedule as a PDF file. <br><b>Uposatha_Calendar_20xx.pdf</b></p>
-            <br>
-                <a href="https://www.mediafire.com/file/go4d1yh04q1kzj0/Uposatha_Calendar_2027.pdf/file" target="_blank"
-                    rel="noopener noreferrer" class="download-btn">Download 2027</a>
-                </div>
-                </div>
+        <div class="download-item" id="csv">
+          <div class="download-info">
+            <h4>Schedule (CSV)</h4>
+            <p>
+              Download the schedule as a CSV file for calendar import. You can
+              upload it into your Calendar app. Your file will be saved in the
+              Downloads folder as schedule-20xx.csv.
+            </p>
+            <br />
+            <p>
+              Select year and download
+              <select id="yearSelect">
+                <option value="2026">2026</option>
+              </select>
+            </p>
+
+            <br />
+            <a
+              href="https://www.mediafire.com/file/dljnbtm6ta75uxh/schedule-2026.csv/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-btn"
+              >Download</a
+            >
+          </div>
         </div>
+        <br />
 
-
-        <!-- Google Calendar Section -->
-        <div class="download-section">
-            <h3>🔗 Share Download Link</h3>
-            <div class="download-item" style="flex-direction: column; align-items: center;">
-                <img src="buddhist-app.png" alt="Bhikkhu Manual App" class="imgg">
-            </div>
+        <div class="download-item" id="csv">
+          <div class="download-info">
+            <h4>Schedule PDF</h4>
+            <p>
+              Download the schedule as a PDF file. <br /><b
+                >Uposatha_Calendar_20xx.pdf</b
+              >
+            </p>
+            <br />
+            <a
+              href="https://www.mediafire.com/file/go4d1yh04q1kzj0/Uposatha_Calendar_2027.pdf/file"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="download-btn"
+              >Download 2027</a
+            >
+          </div>
         </div>
+      </div>
 
+      <!-- Google Calendar Section -->
+      <div class="download-section">
+        <h3>🔗 Share Download Link</h3>
+        <div
+          class="download-item"
+          style="flex-direction: column; align-items: center"
+        >
+          <img src="buddhist-app.png" alt="Bhikkhu Manual App" class="imgg" />
+        </div>
+      </div>
     </main>
-<p style="text-align:center; font-size:14px; color:#eee; margin-bottom:6px;">
-  Click to copy link
-</p>
+    <p
+      style="
+        text-align: center;
+        font-size: 14px;
+        color: #eee;
+        margin-bottom: 6px;
+      "
+    >
+      Click to copy link
+    </p>
 
-<p style="cursor:pointer; 
-          color:#fff; 
-          text-align:center; 
-          font-weight:bold; 
-          text-shadow:2px 2px 4px rgba(0,0,0,0.6);"
-   onclick="navigator.clipboard.writeText('https://buddhist-app.github.io/Buddhist-Monastic/')">
-   https://buddhist-app.github.io/Buddhist-Monastic/
-</p>
+    <p
+      style="
+        cursor: pointer;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      "
+      onclick="
+        navigator.clipboard.writeText(
+          'https://buddhist-app.github.io/Buddhist-Monastic/',
+        )
+      "
+    >
+      https://buddhist-app.github.io/Buddhist-Monastic/
+    </p>
 
-    
-<script>
-  const overlay = document.getElementById('overlay');
-  const overlayImg = document.getElementById('overlayImg');
+    <script>
+      const overlay = document.getElementById("overlay");
+      const overlayImg = document.getElementById("overlayImg");
 
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.addEventListener('click', () => {
-      overlayImg.src = img.src;
-      overlay.style.display = 'flex';
-    });
-  });
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.addEventListener("click", () => {
+          overlayImg.src = img.src;
+          overlay.style.display = "flex";
+        });
+      });
 
-  overlay.addEventListener('click', () => {
-    overlay.style.display = 'none';
-  });
-</script>
-
-</body>
-
+      overlay.addEventListener("click", () => {
+        overlay.style.display = "none";
+      });
+    </script>
+  </body>
 </html>
